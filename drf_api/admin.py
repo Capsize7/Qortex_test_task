@@ -7,7 +7,7 @@ from django.contrib.admin import ModelAdmin
 @admin.register(Singer)
 class Singer(ModelAdmin):
     list_per_page = 5
-    list_display = 'name', 'slug'
+    list_display = 'name', 'slug', 'author'
     list_filter = ['name']
     search_fields = ['name']
 

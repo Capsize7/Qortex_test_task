@@ -7,3 +7,5 @@ sqlparse==0.4.4
 djangorestframework
 django-filter
 slug
+pytest
+pytest-django

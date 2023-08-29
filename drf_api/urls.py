@@ -7,4 +7,5 @@ urlpatterns = [
     path('songs/', SongList.as_view()),
     path('songs/<slug:singer_slug>/', SingerSongList.as_view()),
     path('singers/', SingerList.as_view()),
+    path('singers/<slug:singer_slug>', SingerDetail.as_view()),
 ]

@@ -3,6 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from .models import Singer, Song, Album
 from .serializers import SingerSerializer, AlbumSerializer, SongSerializer
+from .permissions import IsOwnerOrReadOnly
 
 
 class AlbumList(generics.ListCreateAPIView):
@@ -20,6 +21,14 @@ class SingerList(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['name']
     search_fields = ['name']
+
+
+class SingerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Singer.objects.all()
+    serializer_class = SingerSerializer
+    lookup_field = 'slug'
+    lookup_url_kwarg = 'singer_slug'
+    permission_classes = IsOwnerOrReadOnly,
 
 
 class SongList(generics.ListCreateAPIView):

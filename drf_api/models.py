@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from slug import slug
 
@@ -7,6 +8,7 @@ from slug import slug
 class Singer(models.Model):
     name = models.CharField(max_length=255, verbose_name='Исполнитель', unique=True)
     slug = models.SlugField(max_length=255, db_index=True, verbose_name='Слаг', blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='author', verbose_name='автор')
 
     def save(self, *args, **kwargs):
         self.slug = slug(self.name)

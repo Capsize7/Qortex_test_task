@@ -5,9 +5,11 @@ from drf_api.models import Song, Singer, Album
 
 
 class SingerSerializer(ModelSerializer):
+    author = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Singer
-        fields = 'name',
+        fields = 'name', 'author'
 
 
 class SongSerializer(ModelSerializer):
@@ -32,5 +34,3 @@ class AlbumSerializer(ModelSerializer):
     class Meta:
         model = Album
         fields = 'name', 'singer', 'year_published'
-
-
