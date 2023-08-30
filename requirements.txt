@@ -9,3 +9,4 @@ django-filter
 slug
 pytest
 pytest-django
+drf-spectacular

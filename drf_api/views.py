@@ -15,6 +15,7 @@ class AlbumList(generics.ListCreateAPIView):
     ordering_fields = ['name', 'singer', 'year_published']
 
 
+
 class SingerList(generics.ListCreateAPIView):
     queryset = Singer.objects.all()
     serializer_class = SingerSerializer

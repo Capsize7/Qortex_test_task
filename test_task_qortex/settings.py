@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'drf_api.apps.DrfApiConfig',
     "rest_framework",
     'django_filters',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Qortex test task API",
+    "DESCRIPTION": "A simple api for qortex`s task",
+    "VERSION": "1.0.0",
+}
