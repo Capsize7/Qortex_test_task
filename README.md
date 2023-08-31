@@ -1,6 +1,6 @@
-# DRF Test task about simple api
+# Test task about simple api
 
-This is simple api project for qortex`s test task
+This is a simple api project
  
 ## Features
 - Python
@@ -20,7 +20,7 @@ This is simple api project for qortex`s test task
 3)Apply migrations for db
 - docker-compose exec app python manage.py migrate --noinput
 
-4)Go to http://localhost:8000/api/v1/albums
+4)Go to http://localhost:8000/api/v1/schema/swagger/
 
 ```
 
